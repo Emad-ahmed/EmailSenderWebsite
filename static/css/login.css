@@ -1,0 +1,39 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ce5b31 !important;
+}
+
+#loginForm {
+    background-color: white;
+    max-width: 500px;
+    padding: 50px;
+}
+
+#signupForm {
+    background-color: white;
+    max-width: 500px;
+    
+}
+
+#signupForm label {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+button {
+    border: none !important;
+    background-color: #ff4500 !important;
+}
+
+#id_l_name {
+    margin-left: 10px;
+}

@@ -1,0 +1,15 @@
+#profileSettings{
+    background-color: white !important;
+}
+
+#signupForm label {
+
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+#signupForm input
+{
+    margin-bottom: 15px;
+}

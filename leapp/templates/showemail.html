@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}History{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load custom %}
+<link rel="stylesheet" href="{% static 'css/history.css' %}">
+<!--history Section start-->
+
+<section id="historySection" class="bg-light px-2  pb-5 ml-5 rounded">
+    <div>
+       
+      {% if emailmain %}
+      <div class="row">
+        {% for emailuser in emailmain %}
+        <div class="col-lg-4">
+        <div class="card mb-5" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{emailuser.user.username}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{emailuser.to_email}}</h6>
+              <p class="card-text">{{emailuser.subject}}</p>
+              <p class="card-text">{{emailuser.message}}</p>
+            </div>
+          </div>
+        </div>
+        
+
+        
+
+
+        {% endfor %}
+    </div>
+
+    {% else %}
+
+    <h1 class="text-center mt-5 pt-5 text-danger">No Email Send</h1>
+
+    {% endif %}
+  </div>
+</section>
+<!--Container Main end-->
+
+{% endblock %}

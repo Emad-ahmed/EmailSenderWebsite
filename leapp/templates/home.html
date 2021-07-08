@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/email.css' %}">
+{% if messages %}
+        {% for message in messages %}
+        <div {% if message.tags %} {% endif %} class="alert alert-{{message.tags}} messages alert-dismissible fade show w-100 p-1 m-1" role="alert">       
+                <p class="mt-3 mb-3 ">{{message}}</p>        
+                <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+<section id="emailSection" class="bg-light px-2  pb-5 rounded m-0 p-0">
+    <div class="d-flex justify-content-center">
+        <p class="h3 mb-5">Send Emails</p>
+        <p class="ms-auto">500 out of 1000</p>
+
+    </div>
+    <!-- drag drop boxes -->
+    <form class="row rounded" method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-md-6 d-flex justify-content-center align-items-center flex-column emailBox rounded">
+            <p>Drag here to upload</p>
+            <p>or</p>
+            <input type="file" name="file">
+            <p>Sender</p>
+        </div>
+       
+        <div class="col-md-12 mb-3 mt-5">
+            <label for="exampleInputEmail1" class="form-label">To</label>
+            <input type="email" name="to_email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email">
+        </div>
+        <div class="col-md-12 mb-3">
+            <label for="exampleInputsub" class="form-label">Subject</label>
+            <input type="text" name="subject" class="form-control" id="exampleInputsub" placeholder="Enter subject">
+        </div>
+        <div class="col-md-12 mb-3">
+            <label for="exampleInputPassword1" class="form-label">Message</label>
+            <textarea class="form-control" name="my_message" aria-label="With textarea" style="resize: none;"></textarea>
+        </div>
+        <div class="text-center">
+        <button type="submit" class=" col-md-2 btn btn-primary">Submit</button>
+    </div>
+    </form>
+</section>
+
+{% endblock %}

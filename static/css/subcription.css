@@ -1,0 +1,20 @@
+#subscriptionSection{
+    background-color: white !important;
+}
+.card{
+    height: 500px !important;
+}
+.packageName{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+#begText{
+    color: red;
+}
+
+@media screen and (min-width: 768px) {
+    /* Subscription page styling */
+#subscriptionCards{
+    flex-direction: row !important;
+}
+}

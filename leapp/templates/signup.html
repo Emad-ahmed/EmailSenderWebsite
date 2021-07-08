@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+
+
+<!-- SIGN UP SECTION CODE -->
+<section>
+    <form id="signupForm" method="post" action="" class="row rounded p-4 mx-auto" novalidate>
+        {% csrf_token %}
+        {% if messages %}
+        {% for message in messages %}
+        <div {% if message.tags %} {% endif %} class="alert alert-{{message.tags}} messages alert-dismissible fade show w-100 p-1 m-1" role="alert">       
+                <p class="mt-3 mb-3 ">{{message}}</p>        
+                <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <div class="col-lg-6 p-0 m-0">
+            <label for="f_name">{{form.f_name.label_tag}}</label>
+            {{form.f_name}}
+            <small class="text-danger">{{form.f_name.errors|striptags}}</small>
+        </div>
+        <div class="col-lg-6 p-0 m-0">
+            <label for="f_name">{{form.l_name.label_tag}}</label>
+            {{form.l_name}}
+            <small class="text-danger">{{form.l_name.errors|striptags}}</small>
+        </div>
+
+        <label for="f_name">{{form.insta_acc.label_tag}}</label>
+        {{form.insta_acc}}
+
+        <label for="f_name">{{form.username.label_tag}}</label>
+        {{form.username}}
+        <small class="text-danger">{{form.username.errors|striptags}}</small>
+        <label for="email">{{form.email.label_tag}}</label>
+        {{form.email}}
+        <small class="text-danger">{{form.email.errors|striptags}}</small>
+
+        <label for="f_name">{{form.phone.label_tag}}</label>
+        {{form.phone}}
+        <small class="text-danger">{{form.phone.errors|striptags}}</small>
+        <!-- {% for fm in form %}
+        {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}
+        {% endfor %} -->
+        <button type="submit" class="btn btn-primary mt-5">Continue</button>
+    </form>
+</section>
+
+{% endblock  %}
+
+<!--  -->
